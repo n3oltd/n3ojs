@@ -13,6 +13,10 @@
       font-weight: 400;
       src: url(https://fonts.gstatic.com/s/materialicons/v121/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
     }
+    @font-face {
+      font-family: 'MuseoSansRounded500';
+      src: url(https://readfoundation.org.uk/assets/fonts/MuseoSans_500.otf) format("opentype");
+    }    
   </style>
   <title>N3O Donation Form</title>
 
@@ -21,19 +25,20 @@
   <style>
     data-donation-form {
       --row-spacing: 16px;
-      --font-family: "Museo Sans 300", Arial, sans-serif !important;
+      --font-family: "MuseoSansRounded500", Arial, sans-serif !important;
       --default-text-color: rgb(33, 37, 41);
       --text-muted-color: #6c757d;
-      --input-height: 28px;
+      --input-height: 40px;
       --input-font-size: 16px;
-      --input-box-shadow: 0 0 0 0.2rem rgba(79, 175, 70, 0.5);
       --header-font-size: 20px;
       --text-color: #212529;
+      /* --border-radius: 0px; */
 
-      --theme-color: #4FAF46;
+      --theme-color: #C80001;
+      --form-background-color: #e9e8e8;;
 
       --type-button-text-transform: uppercase;
-      --type-button-padding: 6px 12px;
+      --type-button-padding: 16px 12px;
 
       --button-text-size: 18px;
 
@@ -53,7 +58,7 @@
       --button-selected-box-shadow: var(--input-box-shadow);
 
       --donate-button-text-color: #fff;
-      --donate-button-background: #F26F22;
+      --donate-button-background: #C80001;
       --donate-button-hover-text-color: #fff;
       --donate-button-hover-background: var(--theme-color);
       --donate-button-hover-border: none;
@@ -62,7 +67,7 @@
       --donate-button-icon-color: #fff;
 
       /* NOTE: Hex colour here must begin with %23 not # as # character is considered a fragment identifier. */
-      --select-dropdown-url: url("data:image/svg+xml;utf8,<svg fill='%234FAF46' height='26' viewBox='0 0 26 26' width='26' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+      --select-dropdown-url: url("data:image/svg+xml;utf8,<svg fill='%211c18' height='40' viewBox='0 0 26 26' width='26' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
 
     }
   </style>
@@ -85,7 +90,10 @@
       baseUrl: "https://read-uk-staging.n3o.site",
       showFrequencyFirst: true,
       showCurrencyText: true,
-      footerText: "We accept all major credit cards and PayPal"
+      footerText: "We accept all major credit cards and PayPal",
+      icons: {
+        donateButton: {icon: "favorite", variety: "filled" }
+      }
     };
   </script>
 
@@ -93,15 +101,36 @@
     * {
       box-sizing: border-box;
     }
+
+    /* AFH frequency options button are fully-rounded, this might not apply to other clients -- but this styling doesn't work here.
+    moved to line 153 on donationFormStyles.ts
+    */
+    .n3o-donation-frequency-container .n3o-donation-form-button{
+      border-radius: 80px;
+    }
     #quickDonationFormContainer {
       width: 100%;
       position: fixed;
       bottom: 0;
-      background: rgba(255,255,255, 0.8);
+      background: var(--form-background-color);
       display: flex;
-      padding: 10px;
+      padding: 0;
+      margin: 0;
       align-items: center;
+      justify-content: center;
     }
+
+    @media (min-width: 992px){
+      #quickDonationForm::before{
+        /* need to replace content with SVG path or direct file */
+        content: url("https://actionforhumanity-uk-staging.n3o.site/assets/images/quick-donate.svg");
+        position: relative;
+        /* vertical-align: middle; */
+        top: 84px;
+        left: 40px;
+      }
+    }
+    
   </style>
 </head>
 

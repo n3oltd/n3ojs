@@ -6,15 +6,19 @@ export const donationFormStyles = css`
   }
   div[id*="n3o-donation-form"] {
     font-family: var(--font-family);
-    border: 4px solid var(--theme-color);
+    // border: 2px solid var(--theme-color);
     color: var(--text-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--button-box-shadow);
   }
 
   .n3o-quick-donate-form {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     border: none !important;
+    background: var(--form-background-color);
+    padding: 10px 20px;
   }
 
   .n3o-quick-donate-form .n3o-quick-donate-title {
@@ -23,23 +27,28 @@ export const donationFormStyles = css`
   .n3o-quick-donate-form .n3o-quick-donate-form-selects {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     border: none !important;
     flex-grow: 1;
   }
   .n3o-quick-donate-form .n3o-quick-donate-form-selects .n3o-quick-donate-col {
-    width: 22%;
-    padding: 0 2%;
+    // width: 22%;
+    // padding: 0 2%;
+    min-width: 20%;
+    padding: 0 15px;
   }
 
   .n3o-donation-form-title {
     text-align: center;
     font-size: var(--header-font-size);
     color: var(--theme-color);
+    background: var(--form-background-color);
+    min-width: 200px;
   }
 
   .n3o-donation-form-card {
-    border-top: 4px solid var(--theme-color);
+    // border-top: 4px solid var(--theme-color);
+    background: var(--form-background-color);
   }
 
   .n3o-donation-form-footer {
@@ -106,6 +115,13 @@ export const buttonStyles = css`
     color: var(--button-selected-text-color);
     box-shadow: var(--button-selected-box-shadow);
   }
+  // .n3o-donation-form-button,
+  // .n3o-donation-form-button-unselected,
+  // .n3o-donation-form-button:hover,
+  // .n3o-donation-form-button-selected
+  // {
+  //   border-radius: var(--border-radius);
+  // }
 
   .n3o-button-disabled {
     background: lightgray;
@@ -120,6 +136,8 @@ export const amountSelectorStyles = css`
   }
   .n3o-donation-form-price-select button {
     width: 32%;
+    //AFH only - this style doesn't work atm
+    border-radius: 80px !important;
   }
   .n3o-donation-form-price-desc {
     text-align: center;
@@ -134,6 +152,9 @@ export const frequencyStyles = css`
     display: flex;
     justify-content: space-between;
   }
+  .n3o-donation-frequency-container .n3o-donation-form-button{
+    border-radius: 80px;
+  }
 `;
 
 export const selectStyles = css`
@@ -142,6 +163,7 @@ export const selectStyles = css`
     width: 100%;
     height: var(--input-height);
     font-size: var(--input-font-size);
+    border: 1px solid #d3d2d1;
   }
   select:focus,
   select:focus-visible,
@@ -161,27 +183,28 @@ export const selectCustomArrowStyles = css`
     background-image: var(--select-dropdown-url);
     background-repeat: no-repeat;
     background-position-x: 100%;
-    padding: 0 5px;
+    padding: 0 10px;
+    
   }
 `;
 
 export const otherAmountStyles = css`
   .n3o-amount-input {
     background-color: #fff;
-    color: #888;
+    color: #211c18;
+    border: 1px solid #d3d2d1;
     height: var(--input-height);
-    border: 1px #888 solid;
     font-size: var(--input-font-size);
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
   }
   .n3o-amount-input:focus {
     background-color: #fff;
     border-color: var(--theme-color);
     outline: 0;
-    box-shadow: var(--input-box-shadow);
   }
 
   .n3o-amount-input-inner {
@@ -192,7 +215,7 @@ export const otherAmountStyles = css`
     font-size: var(--input-font-size);
     height: calc(var(--input-height) - 1px);
     border: none;
-    width: 38px;
+    width: 45px;
     background-position-y: 2px;
   }
   .n3o-amount-input select:focus-visible {
@@ -226,7 +249,6 @@ export const otherAmountStyles = css`
   select:target {
     outline: none;
     border: none;
-    box-shadow: var(--input-box-shadow);
   }
   input {
     padding: 0;
@@ -269,6 +291,7 @@ export const donateButtonStyles = css`
     transition: background-color 0.5s ease;
     color: var(--donate-button-text-color);
     background: var(--donate-button-background);
+    min-width: 200px;
 
     display: flex;
     align-items: center;
