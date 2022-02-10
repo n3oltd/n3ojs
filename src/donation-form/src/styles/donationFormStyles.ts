@@ -6,9 +6,7 @@ export const donationFormStyles = css`
   }
   div[id*="n3o-donation-form"] {
     font-family: var(--font-family);
-    // border: 2px solid var(--theme-color);
     color: var(--text-color);
-    border-radius: var(--border-radius);
     box-shadow: var(--button-box-shadow);
   }
 
@@ -32,9 +30,7 @@ export const donationFormStyles = css`
     flex-grow: 1;
   }
   .n3o-quick-donate-form .n3o-quick-donate-form-selects .n3o-quick-donate-col {
-    // width: 22%;
-    // padding: 0 2%;
-    min-width: 20%;
+    width: 20%;
     padding: 0 15px;
   }
 
@@ -47,7 +43,6 @@ export const donationFormStyles = css`
   }
 
   .n3o-donation-form-card {
-    // border-top: 4px solid var(--theme-color);
     background: var(--form-background-color);
   }
 
@@ -115,13 +110,6 @@ export const buttonStyles = css`
     color: var(--button-selected-text-color);
     box-shadow: var(--button-selected-box-shadow);
   }
-  // .n3o-donation-form-button,
-  // .n3o-donation-form-button-unselected,
-  // .n3o-donation-form-button:hover,
-  // .n3o-donation-form-button-selected
-  // {
-  //   border-radius: var(--border-radius);
-  // }
 
   .n3o-button-disabled {
     background: lightgray;
@@ -136,8 +124,8 @@ export const amountSelectorStyles = css`
   }
   .n3o-donation-form-price-select button {
     width: 32%;
-    //AFH only - this style doesn't work atm
-    border-radius: 80px !important;
+    // AFH only - this style doesn't work here
+    // border-radius: 80px !important;
   }
   .n3o-donation-form-price-desc {
     text-align: center;
@@ -153,7 +141,7 @@ export const frequencyStyles = css`
     justify-content: space-between;
   }
   .n3o-donation-frequency-container .n3o-donation-form-button{
-    border-radius: 80px;
+    border-radius: var(--afh-border-radius);
   }
 `;
 
@@ -191,7 +179,6 @@ export const selectCustomArrowStyles = css`
 export const otherAmountStyles = css`
   .n3o-amount-input {
     background-color: #fff;
-    color: #211c18;
     border: 1px solid #d3d2d1;
     height: var(--input-height);
     font-size: var(--input-font-size);
