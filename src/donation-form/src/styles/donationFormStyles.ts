@@ -1,11 +1,15 @@
 import { css } from "lit";
 
 export const donationFormStyles = css`
+  * {
+    font-family: var(--font-family);
+  }
   :host {
     width: 100%;
   }
   div[id*="n3o-donation-form"] {
     font-family: var(--font-family);
+    border: 4px solid var(--theme-color);
     color: var(--text-color);
     box-shadow: var(--button-box-shadow);
   }
@@ -85,6 +89,9 @@ export const donationFormStyles = css`
 `;
 
 export const buttonStyles = css`
+  * {
+    font-family: "Raleway", sans-serif;
+  }
   .n3o-donation-form-button {
     width: 48%;
     font-size: var(--button-text-size, 18px);
@@ -118,6 +125,9 @@ export const buttonStyles = css`
 `;
 
 export const amountSelectorStyles = css`
+  * {
+    font-family: "Raleway", sans-serif;
+  }
   .n3o-donation-form-price-select {
     display: flex;
     justify-content: space-between;
@@ -136,6 +146,9 @@ export const amountSelectorStyles = css`
 `;
 
 export const frequencyStyles = css`
+  * {
+    font-family: var(--font-family);
+  }
   .n3o-donation-frequency-container {
     display: flex;
     justify-content: space-between;
@@ -146,6 +159,9 @@ export const frequencyStyles = css`
 `;
 
 export const selectStyles = css`
+  * {
+    font-family: var(--font-family);
+  }
   select {
     background-color: #fff;
     width: 100%;
@@ -164,6 +180,12 @@ export const selectStyles = css`
   }
 `;
 
+export const utilStyles = css`
+  .n3o-hide-border {
+    border: none;
+  }
+`;
+
 export const selectCustomArrowStyles = css`
   select {
     -webkit-appearance: none;
@@ -177,6 +199,9 @@ export const selectCustomArrowStyles = css`
 `;
 
 export const otherAmountStyles = css`
+  * {
+    font-family: var(--font-family);
+  }
   .n3o-amount-input {
     background-color: #fff;
     border: 1px solid #d3d2d1;
@@ -196,16 +221,17 @@ export const otherAmountStyles = css`
 
   .n3o-amount-input-inner {
     flex-grow: 1;
+    display: flex;
   }
 
-  .n3o-amount-input select {
+  .n3o-amount-input .n3o-select-currency {
     font-size: var(--input-font-size);
     height: calc(var(--input-height) - 1px);
     border: none;
     width: 45px;
     background-position-y: 2px;
   }
-  .n3o-amount-input select:focus-visible {
+  .n3o-amount-input .n3o-select-currency:focus-visible {
     border: none;
     outline: none;
   }
@@ -223,6 +249,10 @@ export const otherAmountStyles = css`
     outline: none;
     box-shadow: none;
     background: #fff;
+    padding: 0;
+    height: var(--input-height);
+    font-size: var(--input-font-size);
+    width: calc(100% - 50px);
   }
   input:focus,
   input:focus-visible,
@@ -237,12 +267,7 @@ export const otherAmountStyles = css`
     outline: none;
     border: none;
   }
-  input {
-    padding: 0;
-    height: var(--input-height);
-    font-size: var(--input-font-size);
-    width: calc(100% - 50px);
-  }
+
   .n3o-amount-disabled {
     background-color: rgba(246, 246, 246, 1);
   }
