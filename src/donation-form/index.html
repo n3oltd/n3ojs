@@ -8,7 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+  <!-- Proxima Nova alternative fallback font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'Material Icons';
@@ -17,9 +18,13 @@
       src: url(https://fonts.gstatic.com/s/materialicons/v121/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
     }
     @font-face {
-      font-family: 'MuseoSansRounded500';
-      src: url(https://readfoundation.org.uk/assets/fonts/MuseoSans_500.otf) format("opentype");
-    }    
+      font-family: 'proximanova-regular';
+      src: url(https://www.actionforhumanity.org/wp-content/themes/actionforhumanity/fonts/proximanova-regular-webfont.woff2) format("woff");
+    }
+    @font-face {
+      font-family: 'proximanova-bold';
+      src: url(https://www.actionforhumanity.org/wp-content/themes/actionforhumanity/fonts/proxima_nova_bold.woff2) format("woff");
+    }  
   </style>
   <title>N3O Donation Form</title>
 
@@ -28,14 +33,19 @@
   <style>
     data-donation-form {
       --row-spacing: 16px;
-      --font-family: "MuseoSansRounded500", Arial, sans-serif !important;
+      --font-family: "proximanova-regular", Montserrat, Arial, sans-serif !important;
       --default-text-color: rgb(33, 37, 41);
       --text-muted-color: #6c757d;
       --input-height: 40px;
       --input-font-size: 16px;
       --header-font-size: 20px;
       --text-color: #212529;
-      --afh-border-radius: 80px;
+      --border-radius: 5px;
+
+      --title-font-family: "proximanova-bold", Montserrat, Arial, sans-serif !important;
+      --quick-donate-text-size: 24px;
+      --giving-type-border-radius: 80px;
+      --price-handle-border-radius: 80px;
 
       --theme-color: #C80001;
       --form-background-color: #e9e8e8;;
@@ -44,11 +54,11 @@
       --type-button-padding: 16px 12px;
 
       --button-text-size: 18px;
-
       --button-background-color: none;
       --button-text-color: #6c757d;
       --button-border: 1px solid #6c757d;
       --button-box-shadow: none;
+      --button-font-weight: 800;
 
       --button-hover-background-color: var(--theme-color);
       --button-hover-text-color: #fff;
@@ -60,12 +70,14 @@
       --button-selected-border: 1px solid var(--theme-color);
       --button-selected-box-shadow: var(--input-box-shadow);
 
+      --donate-button-font-family: "proximanova-bold", Montserrat, Arial, sans-serif !important;
       --donate-button-text-color: #fff;
       --donate-button-background: #C80001;
       --donate-button-hover-text-color: #fff;
       --donate-button-hover-background: var(--theme-color);
       --donate-button-hover-border: none;
       --donate-button-hover-box-shadow: none;
+      --donate-button-height: 40px;
 
       --donate-button-icon-color: #fff;
 
@@ -105,13 +117,6 @@
       box-sizing: border-box;
     }
 
-    /* AFH frequency options button are fully-rounded, this might not apply to other clients -- but this styling doesn't work here.
-    moved to line 143 on donationFormStyles.ts
-    ===========================================
-    .n3o-donation-frequency-container .n3o-donation-form-button{
-      border-radius: 80px;
-    } */
-
     #quickDonationFormContainer {
       width: 100%;
       position: fixed;
@@ -126,10 +131,9 @@
 
     @media (min-width: 992px){
       #quickDonationForm::before{
-        /* need to replace content with SVG path or direct file */
+        /* need to replace content with SVG path or direct svg file */
         content: url("https://actionforhumanity-uk-staging.n3o.site/assets/images/quick-donate.svg");
         position: relative;
-        /* vertical-align: middle; */
         top: 84px;
         left: 40px;
       }
@@ -140,7 +144,7 @@
 
 <body>
 <div style="height: 800px">
-  <div style="width: 300px">
+  <div style="width: 400px">
     <data-donation-form id="donationForm" type="full"> </data-donation-form>
     <div id="quickDonationFormContainer">
       <data-donation-form id="quickDonationForm" type="quick"> </data-donation-form>

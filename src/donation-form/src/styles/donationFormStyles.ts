@@ -20,11 +20,14 @@ export const donationFormStyles = css`
     justify-content: center;
     border: none !important;
     background: var(--form-background-color);
-    padding: 10px 20px;
+    padding: 20px;
   }
 
   .n3o-quick-donate-form .n3o-quick-donate-title {
-    padding: 0 30px;
+    padding: 0 0 0 40px;
+    font-family: var(--title-font-family);
+    font-size: var(--quick-donate-text-size);
+    color: var(--text-color);
   }
   .n3o-quick-donate-form .n3o-quick-donate-form-selects {
     display: flex;
@@ -35,10 +38,12 @@ export const donationFormStyles = css`
   }
   .n3o-quick-donate-form .n3o-quick-donate-form-selects .n3o-quick-donate-col {
     width: 20%;
-    padding: 0 15px;
+    max-width: 240px;
+    padding: 0 10px;
   }
 
   .n3o-donation-form-title {
+    font-family: var(--title-font-family);
     text-align: center;
     font-size: var(--header-font-size);
     color: var(--theme-color);
@@ -90,9 +95,11 @@ export const donationFormStyles = css`
 
 export const buttonStyles = css`
   * {
-    font-family: "Raleway", sans-serif;
+    font-family: var(--donate-button-font-family);
   }
   .n3o-donation-form-button {
+    transition: background-color 0.5s ease;
+    font-weight: var(--button-font-weight);
     width: 48%;
     font-size: var(--button-text-size, 18px);
     text-transform: var(--type-button-text-transform);
@@ -126,7 +133,7 @@ export const buttonStyles = css`
 
 export const amountSelectorStyles = css`
   * {
-    font-family: "Raleway", sans-serif;
+    font-family: var(--donate-button-font-family);
   }
   .n3o-donation-form-price-select {
     display: flex;
@@ -134,14 +141,13 @@ export const amountSelectorStyles = css`
   }
   .n3o-donation-form-price-select button {
     width: 32%;
-    // AFH only - this style doesn't work here
-    // border-radius: 80px !important;
+    border-radius: var(--price-handle-border-radius);
   }
   .n3o-donation-form-price-desc {
     text-align: center;
     font-size: 14px;
     margin-top: 12px;
-    color: var(--default-text-color);
+    color: var(--text-color);
   }
 `;
 
@@ -154,7 +160,9 @@ export const frequencyStyles = css`
     justify-content: space-between;
   }
   .n3o-donation-frequency-container .n3o-donation-form-button{
-    border-radius: var(--afh-border-radius);
+    border-radius: var(--giving-type-border-radius);
+    text-transform: capitalize;
+    font-weight: var(--button-font-weight);
   }
 `;
 
@@ -167,7 +175,8 @@ export const selectStyles = css`
     width: 100%;
     height: var(--input-height);
     font-size: var(--input-font-size);
-    border: 1px solid #d3d2d1;
+    border: 0px solid #d3d2d1;
+    border-radius: var(--border-radius);
   }
   select:focus,
   select:focus-visible,
@@ -201,17 +210,17 @@ export const selectCustomArrowStyles = css`
 export const otherAmountStyles = css`
   * {
     font-family: var(--font-family);
+    border-radius: var(--border-radius);
   }
   .n3o-amount-input {
     background-color: #fff;
-    border: 1px solid #d3d2d1;
+    border: 0px solid #d3d2d1;
     height: var(--input-height);
     font-size: var(--input-font-size);
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
   }
   .n3o-amount-input:focus {
     background-color: #fff;
@@ -304,6 +313,7 @@ export const donateButtonStyles = css`
     color: var(--donate-button-text-color);
     background: var(--donate-button-background);
     min-width: 200px;
+    height: var(--donate-button-height);
 
     display: flex;
     align-items: center;
